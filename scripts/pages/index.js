@@ -1,3 +1,6 @@
+    // Récuperations des datas
+    import {photographerFactory} from "../factories/photographer.js"
+
     async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
             const response = await fetch("../data/photographers.json")
@@ -9,6 +12,7 @@
             photographers: [...photographers]})
     }
 
+    // Affichage du model et des datas
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
