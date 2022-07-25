@@ -1,6 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
-const id = window.location.search;
-const urlSearchParams = new URLSearchParams(id);
+const urlRequest = window.location.search;
+const urlSearchParams = new URLSearchParams(urlRequest);
 const userId = urlSearchParams.get("id");
 console.log(userId);
 
