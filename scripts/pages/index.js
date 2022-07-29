@@ -21,6 +21,7 @@
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
+    
     };
 
     async function init() {

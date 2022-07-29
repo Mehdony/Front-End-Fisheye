@@ -21,7 +21,7 @@
         color:#D3573C ;
         font-size: 50px;
         font-weight: 100;
-
+        margin: 0;
     }
     .photograph-location{
        color:#901C1C ; 
@@ -38,6 +38,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 100px;
 }
 
 .modal {
