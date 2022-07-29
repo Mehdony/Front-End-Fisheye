@@ -94,3 +94,8 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+figure img, figure video {
+    height: 300px;
+    width: 300px;
+}

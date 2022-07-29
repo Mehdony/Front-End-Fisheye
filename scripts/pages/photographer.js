@@ -1,4 +1,5 @@
-import {mediaFactory} from "../factories/media.js"
+import factory from "../factories/media.js"
+
 //Mettre le code JavaScript lié à la page photographer.html
 const urlRequest = window.location.search;
 const urlSearchParams = new URLSearchParams(urlRequest);
@@ -25,7 +26,7 @@ fetch("../data/photographers.json").then((res) => {
     pp.setAttribute("src", ` ../assets/photographers/${photographer.portrait}`);
 
 
-    // Récupérations des medias d'un photographe(correspondant a userId)
+    // Récupérations des medias d'un photographe(correspondant à userId)
       const medias = photographersList.media.filter(
         (media) => media.photographerId == userId
       )
@@ -39,16 +40,19 @@ fetch("../data/photographers.json").then((res) => {
 
       medias.forEach((media) => {
         // Envoie des medias vers la factory
-          const mediaModel = mediaFactory(media);
+          // const mediaModel = mediaFactory(media);
           // Construction de la carte media grâce aux données envoyées à la factory 
-          const mediaCardDOM = mediaModel.getMediaCardDOM();
+          const mediaCardDOM = factory(media);
           // Ajout de la carte a media_section 
-          mediasSection.appendChild(mediaCardDOM);
+          // mediasSection.appendChild(mediaCardDOM);
+          mediasSection.innerHTML += mediaCardDOM.displayInList()
+          
+          console.log(media);
       });
     }
 
 
-    async function init() {
+    async function init() { 
     // Récupère les datas des photographes
     // const { medias } = await get(); 
     displayData(medias);
