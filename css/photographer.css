@@ -96,6 +96,30 @@ form input {
 }
 
 figure img, figure video {
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
+}
+
+.medias_section{
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 80px;
+    margin-top: 20px;
+}
+
+figcaption, .figcaption-container{
+    display: flex;
+    flex-direction: row;
+    color: #901C1C;
+    font-weight: 500;
+    font-size: 22px;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.media-likes-count{
+    margin: 0;
 }

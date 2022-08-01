@@ -1,4 +1,5 @@
-import factory from "../factories/media.js"
+import factory from "../factories/media.js";
+import Lightbox from "../factories/lightbox.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
 const urlRequest = window.location.search;
@@ -25,41 +26,36 @@ fetch("../data/photographers.json").then((res) => {
     quote.innerText = photographer.tagline;
     pp.setAttribute("src", ` ../assets/photographers/${photographer.portrait}`);
 
-
     // Récupérations des medias d'un photographe(correspondant à userId)
-      const medias = photographersList.media.filter(
-        (media) => media.photographerId == userId
-      )
-      console.log(medias);
+    const medias = photographersList.media.filter(
+      (media) => media.photographerId == userId
+    );
+    console.log(medias);
 
-    
     // Affichage du model et des datas
     async function displayData(medias) {
       const mediasSection = document.querySelector(".medias_section");
-    
 
       medias.forEach((media) => {
         // Envoie des medias vers la factory
-          // const mediaModel = mediaFactory(media);
-          // Construction de la carte media grâce aux données envoyées à la factory 
-          const mediaCardDOM = factory(media);
-          // Ajout de la carte a media_section 
-          // mediasSection.appendChild(mediaCardDOM);
-          mediasSection.innerHTML += mediaCardDOM.displayInList()
-          
-          console.log(media);
+        // const mediaModel = mediaFactory(media);
+        // Construction de la carte media grâce aux données envoyées à la factory
+        const mediaCardDOM = factory(media);
+        // Ajout de la carte a media_section
+        // mediasSection.appendChild(mediaCardDOM);
+        mediasSection.innerHTML += mediaCardDOM.displayInList();
+
+        console.log(media);
       });
     }
 
+    async function init() {
+      // Récupère les datas des photographes
+      // const { medias } = await get();
+      displayData(medias);
+      Lightbox.init()
+    }
 
-    async function init() { 
-    // Récupère les datas des photographes
-    // const { medias } = await get(); 
-    displayData(medias);
-    };
-    
     init();
-
   });
 });
-

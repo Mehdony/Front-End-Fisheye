@@ -8,13 +8,13 @@ export default function factory(data) {
           this.likes = data.likes;
           this.id = data.photographerId;
         }
-      
+
         displayInList() {
           return `<figure>
                       <img class="media-card media-image" src="../assets/medias/${this.id}/${this.image}" alt="${this.title}">
                       <div class='figcaption-container'>
-                          <figcaption>${this.title}</figcaption>
-                          <p class='media-likes-count'>${this.likes} <3</p>
+                      <figcaption>${this.title} </figcaption>
+                      <p class='media-likes-count'>${this.likes} <3</p> 
                       </div>
                   </figure>`;
         }

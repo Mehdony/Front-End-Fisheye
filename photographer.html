@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/lightbox.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
@@ -28,8 +29,17 @@
         <img class="pp" />
       </div>
       <div class="medias_section">
-       
       </div>
+
+      <div class="lightbox">
+        <button class="lightbox_close">X</button>
+        <button class="lightbox_next"> > </button>
+        <button class="lightbox_prev"> < </button>
+        <div class="lightbox_container">
+
+        </div>
+      </div>
+
     </main>
     <div></div>
     <div id="contact_modal">
@@ -50,8 +60,6 @@
     </div>
     
     <script src="scripts/pages/photographer.js" type="module" defer></script>
-    <script src="/scripts/utils/Images.js"></script>
-    <script src="/scripts/utils/Videos.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
