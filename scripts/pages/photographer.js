@@ -38,11 +38,9 @@ fetch("../data/photographers.json").then((res) => {
 
       medias.forEach((media) => {
         // Envoie des medias vers la factory
-        // const mediaModel = mediaFactory(media);
         // Construction de la carte media grâce aux données envoyées à la factory
         const mediaCardDOM = factory(media);
         // Ajout de la carte a media_section
-        // mediasSection.appendChild(mediaCardDOM);
         mediasSection.innerHTML += mediaCardDOM.displayInList();
 
         console.log(media);
