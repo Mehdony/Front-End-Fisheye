@@ -96,7 +96,7 @@ form input {
 }
 
 figure img, figure video {
-    height: 400px;
+    height: 230px;
     width: 400px;
 }
 
@@ -108,8 +108,12 @@ figure img, figure video {
     align-items: center;
     column-gap: 80px;
     margin-top: 20px;
+    object-fit: cover;
 }
 
+.medias_section img {
+   object-fit: cover;
+}
 figcaption, .figcaption-container{
     display: flex;
     flex-direction: row;

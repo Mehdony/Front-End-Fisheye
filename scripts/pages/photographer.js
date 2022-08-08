@@ -45,6 +45,13 @@ fetch("../data/photographers.json").then((res) => {
 
         console.log(media);
       });
+
+      // affichage du prix et des likes
+      // const price = document.querySelector(".price");
+      // const likes = document.querySelector(".likes");
+      // price.innerText = `${photographer.price}€/jour`;
+      // likes.innerText = `${photographer.likes} likes`;
+  
     }
 
     async function init() {

@@ -12,9 +12,33 @@ class Lightbox {
     );
   }
 
+  // Chaine de carractères qui renvois vers l'url de l'image
   constructor(url) {
-    const element = this.buildDOM(url)
-    document.body.appendChild(element)
+    this.element = this.buildDOM(url)
+    this.onKeyUp = this.onKeyUp.bind(this)
+    document.body.appendChild(this.element)
+    document.addEventListener("keyup", this.onKeyUp.bind(this))
+  }
+
+  // Keyboard event
+
+  onKeyUp(e) {
+    if (e.key === "Escape") {
+      this.close(e)
+    }
+  }
+
+
+
+  // Fermeture de la lightbox
+
+  close(e) {
+    e.preventDefault();
+    this.element.classList.add('fadeOut');
+    window.setTimeout(() => {
+      this.element.parentElement.removeChild(this.element);
+    }, 500);
+    document.removeEventListener('keyup', this.onKeyUp);
   }
 
   buildDOM(url) {
@@ -27,6 +51,7 @@ class Lightbox {
     <div class="lightbox_container"> 
     <img src="${url}"/>
         </div>`
+        dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this))
       return dom
   }
 }

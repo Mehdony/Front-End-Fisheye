@@ -4,11 +4,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
-  /* overflow: auto; */
+  overflow: auto;
   animation: lightboxIn 0.5s;
   /* display: none; */
+  transition: opacity 0.3s;
+}
+
+.lightbox.fadeOut {
+opacity: 0;
 }
 
 .lightbox_next,
@@ -37,13 +42,14 @@
   width: 50px;
   height: 50px;
   border: none;
-  background: url('data:image/svg+xml;utf8, <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.75 4.75L11.25 11.25M11.25 4.75L4.75 11.25L11.25 4.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+  background: url('data:image/svg+xml;utf8, <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.75 4.75L11.25 11.25M11.25 4.75L4.75 11.25L11.25 4.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
     center center / 100% 100% no-repeat transparent;
   position: fixed;
   text-indent: -3000px;
   top: 20px;
   right: 10px;
   z-index: 12;
+
 }
 
 .lightbox button {
@@ -69,6 +75,9 @@
   min-height: 100vh;
   margin-left: 50px;
   margin-right: 50px;
+  width: 800px;
+  height: 800px;
+  margin: auto;
 }
 
 .lightbox_loader {
