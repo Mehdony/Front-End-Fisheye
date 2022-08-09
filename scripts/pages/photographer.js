@@ -25,6 +25,7 @@ fetch("../data/photographers.json").then((res) => {
     location.innerText = `${photographer.city}, ${photographer.country}`;
     quote.innerText = photographer.tagline;
     pp.setAttribute("src", ` ../assets/photographers/${photographer.portrait}`);
+    pp.classList.add("profile-picture");
 
     // Récupérations des medias d'un photographe(correspondant à userId)
     const medias = photographersList.media.filter(

@@ -1,87 +1,111 @@
+
 class Lightbox {
   static init() {
-    const links = document.querySelectorAll(
-      'img[src$=".png"], img[src$=".jpg"], img[src$=".jpeg"], video'
+    const links = Array.from(
+      document.querySelectorAll(
+        'img:not(.logo):not(.heading-image):not(.close), video'
+      )
     );
+    console.log(links);
+    const gallery = links.map((link) => link.getAttribute('src'));
+    console.log(gallery);
+
     links.forEach((link) =>
-      link.addEventListener("click", (e) => {
+      link.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(link);
-        new Lightbox(e.currentTarget.getAttribute("src"));
+        new Lightbox(e.currentTarget.getAttribute('src'), gallery);
       })
     );
   }
 
-  // Chaine de carractères qui renvois vers l'url de l'image
-  constructor(url) {
-    this.element = this.buildDOM(url)
-    if(url.endsWith(".mp4")) {
-      console.log(url);
-      this.loadVideo(url)
+  constructor(url, gallery) {
+    this.element = this.buildDOM(url);
+    this.gallery = gallery;
+    if (url.endsWith('.mp4')) {
+      this.loadVideo(url);
+    } else {
+      this.loadImage(url);
     }
-    else {
-      console.log("image");
-      this.loadImage(url)
-    }
-    this.onKeyUp = this.onKeyUp.bind(this)
-    document.body.appendChild(this.element)
-    document.addEventListener("keyup", this.onKeyUp.bind(this))
+
+    this.onKeyUp = this.onKeyUp.bind(this);
+    document.body.appendChild(this.element);
+    document.addEventListener('keyup', this.onKeyUp);
   }
 
-
   loadImage(url) {
+    this.url = null;
     const image = new Image();
-    const container = this.element.querySelector(".lightbox_container");
-    const loader = document.createElement("div");
-    loader.classList.add("lightbox_loader");
+    const container = this.element.querySelector('.lightbox_container');
+    const loader = document.createElement('div');
+    loader.classList.add('lightbox_loader');
+    container.innerHTML = '';
     container.appendChild(loader);
-    image.onload = function () {
+    console.log(url);
+    image.onload = () => {
       container.removeChild(loader);
       container.appendChild(image);
-    }
+      this.url = url;
+    };
     image.src = url;
   }
 
-
   loadVideo(url) {
     this.url = null;
-    const video = document.createElement("video");
-    const container = this.element.querySelector(".lightbox_container");
-    const loader = document.createElement("div");
-    loader.classList.add("lightbox_loader");
+    const video = document.createElement('video');
+    const container = this.element.querySelector('.lightbox_container');
+    const loader = document.createElement('div');
+    loader.classList.add('lightbox_loader');
+    container.innerHTML = '';
     container.appendChild(loader);
-    const refresher =() => {
+    const refresher = () => {
       container.replaceChildren(video);
-    }
+    };
     video.onloadeddata = refresher;
-    video.setAttribute("src", url);
-    video.setAttribute("controls", true);
-    video.setAttribute("autoplay", false);
-    video.setAttribute("preload", "auto");
+    video.setAttribute('src', url);
+    video.setAttribute('controls', true);
+    video.setAttribute('autoplay', true);
+    video.setAttribute('preload', 'auto');
     this.url = url;
-    console.log(this.url);
     video.src = url;
     video.innerHTML = `<source src="${url}" type="video/mp4">`;
   }
 
-  next(e)
-  {
-    
-  }
-  prev(e)
-  {
-    
+  next(e) {
+    e.preventDefault();
+    console.log(this.gallery);
+    let i = this.gallery.findIndex((image) => image === this.url);
+
+    if (i === this.gallery.length - 1) {
+      i = -1;
+    }
+    if (this.gallery[i + 1].endsWith('.mp4')) {
+      this.loadVideo(this.gallery[i + 1]);
+    } else {
+      this.loadImage(this.gallery[i + 1]);
+    }
+    console.log(i);
   }
 
-  // Keyboard event
-
-  onKeyUp(e) {
-    if (e.key === "Escape") {
-      this.close(e)
+  prev(e) {
+    e.preventDefault();
+    console.log(this.gallery);
+    let i = this.gallery.findIndex((image) => image === this.url);
+    if (i === 0) {
+      i = this.gallery.length;
+    }
+    if (this.gallery[i - 1].endsWith('.mp4')) {
+      this.loadVideo(this.gallery[i - 1]);
+    } else {
+      this.loadImage(this.gallery[i - 1]);
     }
   }
 
-  // Fermeture de la lightbox
+  onKeyUp(e) {
+    if (e.key === 'Escape') {
+      this.close(e);
+    }
+  }
 
   close(e) {
     e.preventDefault();
@@ -93,22 +117,25 @@ class Lightbox {
   }
 
   buildDOM() {
-    const dom = document.createElement("div");
-    dom.classList.add("lightbox");
+    const dom = document.createElement('div');
+    dom.classList.add('lightbox');
     dom.innerHTML = `
-    <button class="lightbox_close">Close</button>
-    <button class="lightbox_next"> next </button>
-    <button class="lightbox_prev"> prev </button>
-    <div class="lightbox_container"> 
-        </div>`
-        dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this))
-      return dom
+            <button class="lightbox_close">Fermer</button>
+            <button class="lightbox_next">Suivant</button>
+            <button class="lightbox_prev">Précédent</button>
+            <div class="lightbox_container">
+            </div>`;
+    dom
+      .querySelector('.lightbox_close')
+      .addEventListener('click', this.close.bind(this));
+    dom
+      .querySelector('.lightbox_next')
+      .addEventListener('click', this.next.bind(this));
+    dom
+      .querySelector('.lightbox_prev')
+      .addEventListener('click', this.prev.bind(this));
+    return dom;
   }
 }
 
-/* <div class="lightbox">
-
-</div> */
-// Lightbox.init()
 export default Lightbox;
-{/* <div class="lightbox_loader"><div/>  */}

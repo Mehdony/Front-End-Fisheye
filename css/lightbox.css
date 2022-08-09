@@ -43,8 +43,7 @@ opacity: 0;
   width: 50px;
   height: 50px;
   border: none;
-  background: url('data:image/svg+xml;utf8, <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.75 4.75L11.25 11.25M11.25 4.75L4.75 11.25L11.25 4.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
-    center center / 100% 100% no-repeat transparent;
+  background: url(../assets/icons/close2.svg) center center / 100% 100%  no-repeat;
   position: fixed;
   text-indent: -3000px;
   top: 20px;
