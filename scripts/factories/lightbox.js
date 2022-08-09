@@ -56,12 +56,21 @@ class Lightbox {
     video.onloadeddata = refresher;
     video.setAttribute("src", url);
     video.setAttribute("controls", true);
-    video.setAttribute("autoplay", true);
+    video.setAttribute("autoplay", false);
     video.setAttribute("preload", "auto");
     this.url = url;
     console.log(this.url);
     video.src = url;
     video.innerHTML = `<source src="${url}" type="video/mp4">`;
+  }
+
+  next(e)
+  {
+    
+  }
+  prev(e)
+  {
+    
   }
 
   // Keyboard event
@@ -71,8 +80,6 @@ class Lightbox {
       this.close(e)
     }
   }
-
-
 
   // Fermeture de la lightbox
 
@@ -85,7 +92,7 @@ class Lightbox {
     document.removeEventListener('keyup', this.onKeyUp);
   }
 
-  buildDOM(url) {
+  buildDOM() {
     const dom = document.createElement("div");
     dom.classList.add("lightbox");
     dom.innerHTML = `

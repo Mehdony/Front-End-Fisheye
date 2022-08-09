@@ -29,6 +29,7 @@ opacity: 0;
   z-index: 11;
   text-indent: -3000px;
   cursor: pointer;
+  color: white;
   transition: 0.3s;
 }
 
@@ -49,8 +50,9 @@ opacity: 0;
   top: 20px;
   right: 10px;
   z-index: 12;
-
+color: white;
 }
+
 
 .lightbox button {
   opacity: 0.5;
