@@ -96,8 +96,9 @@ form input {
 }
 
 figure img, figure video {
-    height: 230px;
-    width: 400px;
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
 }
 
 .medias_section{

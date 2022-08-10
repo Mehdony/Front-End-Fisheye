@@ -3,7 +3,7 @@ class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll(
-        'img:not(.logo):not(.heading-image):not(.close), video'
+        'img:not(.logo):not(.heading-image):not(.close):not(.pp):not(#close), video'
       )
     );
     console.log(links);
@@ -19,6 +19,7 @@ class Lightbox {
     );
   }
 
+
   constructor(url, gallery) {
     this.element = this.buildDOM(url);
     this.gallery = gallery;
@@ -26,6 +27,7 @@ class Lightbox {
       this.loadVideo(url);
     } else {
       this.loadImage(url);
+
     }
 
     this.onKeyUp = this.onKeyUp.bind(this);
