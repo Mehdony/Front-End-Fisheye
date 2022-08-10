@@ -64,8 +64,14 @@ color: white;
 }
 
 .lightbox_container img {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 700px;
+  animation: lightboxIn 0.5s;
+}
+
+.lightbox_container video {
+  width: auto;
+  height: 700px;
   animation: lightboxIn 0.5s;
 }
 
