@@ -1,5 +1,6 @@
 import factory from "../factories/media.js";
 import Lightbox from "../factories/lightbox.js";
+import Like from "../utils/like.js"
 
 //Mettre le code JavaScript lié à la page photographer.html
 const urlRequest = window.location.search;
@@ -14,12 +15,14 @@ fetch("../data/photographers.json").then((res) => {
     const photographer = photographersList.photographers.find(
       (photographer) => photographer.id == userId
     );
+    console.log("photographer");
     console.log(photographer);
 
     const userName = document.querySelector(".photograph-name");
     const location = document.querySelector(".photograph-location");
     const quote = document.querySelector(".photograph-quote");
     const pp = document.querySelector(".pp");
+
 
     userName.innerText = photographer.name;
     location.innerText = `${photographer.city}, ${photographer.country}`;
@@ -31,8 +34,14 @@ fetch("../data/photographers.json").then((res) => {
     const medias = photographersList.media.filter(
       (media) => media.photographerId == userId
     );
-    console.log(medias);
-
+   //*************** 
+    const totalLikes = medias?.reduce((acc, media ) => {
+      return acc + media.likes 
+    },0)
+    console.log(totalLikes);
+    const dailyPrice = photographer.price
+    console.log(dailyPrice);
+    //***************
     // Affichage du model et des datas
     async function displayData(medias) {
       const mediasSection = document.querySelector(".medias_section");
@@ -58,7 +67,8 @@ fetch("../data/photographers.json").then((res) => {
     async function init() {
       // Récupère les datas des photographes
       // const { medias } = await get();
-      displayData(medias);
+      await displayData(medias);
+      Like.init()
       Lightbox.init()
     }
 

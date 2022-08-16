@@ -124,6 +124,7 @@ figcaption, .figcaption-container{
     font-weight: 500;
     font-size: 24px;
     align-content: center;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -136,5 +137,29 @@ figcaption {
 }
 
 .media-likes-count{
+    margin: 0;
+}
+
+.heart-icon {
+
+    width: 25px;
+    height: 25px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    height: 80px;
+    width: 300px;
+    background-color: #901C1C;
+}
+
+.info p{
     margin: 0;
 }

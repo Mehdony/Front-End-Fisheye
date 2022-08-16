@@ -24,6 +24,8 @@ export function photographerFactory(data) {
         const textPrice = document.createElement("p")
         textPrice.textContent = `${price}€/jour`
         textPrice.classList.add("textPrice")
+
+    
     
         article.setAttribute('onclick', `location.href='photographer.html?id=${id}'`);
 
