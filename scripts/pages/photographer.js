@@ -34,14 +34,13 @@ fetch("../data/photographers.json").then((res) => {
     const medias = photographersList.media.filter(
       (media) => media.photographerId == userId
     );
-   //*************** 
+
     const totalLikes = medias?.reduce((acc, media ) => {
       return acc + media.likes 
     },0)
-    console.log(totalLikes);
     const dailyPrice = photographer.price
-    console.log(dailyPrice);
-    //***************
+    displayLikes(totalLikes, dailyPrice)
+   
     // Affichage du model et des datas
     async function displayData(medias) {
       const mediasSection = document.querySelector(".medias_section");
@@ -63,6 +62,14 @@ fetch("../data/photographers.json").then((res) => {
       // likes.innerText = `${photographer.likes} likes`;
   
     }
+
+function displayLikes (totalLikes, dailyPrice) {
+  let likes = document.querySelector(".info-like-number")
+  let price = document.querySelector(".info-price-number") 
+  likes.innerHTML = totalLikes 
+  price.innerHTML = dailyPrice
+
+}
 
     async function init() {
       // Récupère les datas des photographes
