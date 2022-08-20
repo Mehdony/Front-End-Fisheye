@@ -5,7 +5,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 265px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,6 +39,12 @@
     border-radius: 5px;
     cursor: pointer;
     margin-right: 100px;
+    transition-duration: 0.3s;
+}
+
+.contact_button:hover {
+    background-color: #DB8876;
+    color: black;
 }
 
 .modal {
@@ -99,6 +105,7 @@ figure img, figure video {
     height: 300px;
     width: 350px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .medias_section{
@@ -141,11 +148,23 @@ figcaption {
 }
 
 .heart-icon {
-
     width: 25px;
     height: 25px;
 }
 
+.heart-icon-bottom {
+    width: 17.5px;
+    height: 18.35px;
+    margin-left: 5px;
+    right: 8.33%;
+    top: 12.5%;
+    bottom: 11.04%;
+}
+.btn-like {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
 .info {
     display: flex;
     flex-direction: row;
@@ -156,10 +175,26 @@ figcaption {
     bottom: 0;
     right: 50px;
     height: 80px;
-    width: 300px;
-    background-color: #901C1C;
+    width: 376px;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0 0;
 }
 
 .info p{
     margin: 0;
+}
+
+.info-like-number{
+    font: DM Sans;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31.25px;
+    color: black;
+}
+.info-price-container{
+    font: DM Sans;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31.25px;
+    color: black;
 }

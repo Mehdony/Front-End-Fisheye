@@ -1,6 +1,6 @@
 import factory from "../factories/media.js";
 import Lightbox from "../factories/lightbox.js";
-import Like from "../utils/like.js"
+import {like} from "../utils/like.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
 const urlRequest = window.location.search;
@@ -54,12 +54,6 @@ fetch("../data/photographers.json").then((res) => {
 
         console.log(media);
       });
-
-      // affichage du prix et des likes
-      // const price = document.querySelector(".price");
-      // const likes = document.querySelector(".likes");
-      // price.innerText = `${photographer.price}€/jour`;
-      // likes.innerText = `${photographer.likes} likes`;
   
     }
 
@@ -68,14 +62,13 @@ function displayLikes (totalLikes, dailyPrice) {
   let price = document.querySelector(".info-price-number") 
   likes.innerHTML = totalLikes 
   price.innerHTML = dailyPrice
-
 }
 
     async function init() {
       // Récupère les datas des photographes
       // const { medias } = await get();
       await displayData(medias);
-      Like.init()
+      like()
       Lightbox.init()
     }
 
