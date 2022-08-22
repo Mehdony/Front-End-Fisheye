@@ -7,12 +7,19 @@ body {
 }
 
 
-header {
+header:not(.contact-header) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 90px;
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {

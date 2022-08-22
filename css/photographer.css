@@ -40,7 +40,9 @@
     cursor: pointer;
     margin-right: 100px;
     transition-duration: 0.3s;
+
 }
+
 
 .contact_button:hover {
     background-color: #DB8876;
@@ -57,6 +59,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    margin-top: 50px;
 }
 
 .modal header {
@@ -71,7 +74,8 @@
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
+    margin: 0;  
 }
 
 form {
@@ -79,6 +83,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    /* padding: 20px; */
 }
 
 form label {
@@ -94,11 +99,20 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+form input:not(#message)  {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+#message {
+    width: 100%;
+    height: 130px;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+
 }
 
 figure img, figure video {

@@ -9,11 +9,11 @@ function displayModal() {
   modal.style.right = "0";
   modal.style.bottom = "0";
   modal.style.margin = "0";
-  modal.style.padding =  "50px"
+  // modal.style.padding =  "50px"
   modal.style.backgroundColor = "rgba(255, 255, 255, 0.6)"
   const name = document.querySelector(".photograph-name").textContent
   const contactNameContainer = document.querySelector(".modal-title")
-  contactNameContainer.innerText = `Contactez-moi ${name}` 
+  contactNameContainer.innerHTML = "Contactez-moi" +  "</br>" + name
 
 }
 
