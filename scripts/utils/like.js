@@ -10,7 +10,7 @@ export function like() {
         likeButton.addEventListener ("click", (e) => {
             //  on empêche le comportement par défaut du bouton
             e.preventDefault()
-            // on récupère l'élément parent du coeur (<figure>)( pour pouvoir acceder au nombre de likes associés au coeur)
+            // on récupère l'élément parent du coeur (card)( pour pouvoir acceder au nombre de likes associés au coeur)
             const parent = likeButton.parentElement
             // on récupère le nombre de likes dans l'element parent du coeur 
             const nombreDeLikes = parent.querySelector('.media-likes-count')
