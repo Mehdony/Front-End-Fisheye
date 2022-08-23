@@ -2,6 +2,7 @@ import factory from "../factories/media.js";
 import Lightbox from "../factories/lightbox.js";
 import {like} from "../utils/like.js";
 
+
 //Mettre le code JavaScript lié à la page photographer.html
 const urlRequest = window.location.search;
 const urlSearchParams = new URLSearchParams(urlRequest);
