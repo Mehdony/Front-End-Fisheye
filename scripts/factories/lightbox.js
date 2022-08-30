@@ -2,7 +2,7 @@ class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll(
-        'img:not(.logo):not(.heading-image):not(.close):not(.pp):not(#close):not(.heart-icon), video'
+        'img:not(.logo):not(.heading-image):not(.close):not(.pp):not(#close):not(.heart-icon):not(.heart-icon-bottom), video'
       )
     );
     console.log(links);
@@ -148,9 +148,9 @@ class Lightbox {
     const dom = document.createElement('div');
     dom.classList.add('lightbox');
     dom.innerHTML = `
-            <button class="lightbox_close">Fermer</button>
-            <button class="lightbox_next">Suivant</button>
-            <button class="lightbox_prev">Précédent</button>
+            <button class="lightbox_close"></button>
+            <button class="lightbox_next"></button>
+            <button class="lightbox_prev"></button>
             <div class="lightbox_container">
             </div>`;
     dom
