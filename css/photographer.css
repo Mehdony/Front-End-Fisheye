@@ -12,10 +12,9 @@ main {
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    display: flex;
+    display:flex;
     align-items: center;
-    justify-content: space-between;
-    padding:0 50px;
+    justify-content: space-around;
     width: 1240px;
 }
     .pp {

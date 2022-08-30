@@ -27,7 +27,7 @@ const buildDom = (item) => {
   if (item.image) {
     // modèle de card image
     return `<figure>
-        <img class="media-card media-image" src="../assets/medias/${item.photographerId}/${item.image}" alt="${item.title}">
+        <img class="media-card media-image" src="../assets/medias/${item.photographerId}/${item.image}" alt="${item.title}" tabindex="1">
         <div class='figcaption-container'>
         <figcaption>${item.title} </figcaption>
         <p class='media-likes-count'>${item.likes} </p> 
@@ -37,7 +37,7 @@ const buildDom = (item) => {
   } else {
     // modèle de card vidéo
     return `<figure>
-        <video class=" media-card media-video" width="300" height="300"  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4" alt="${item.title}">
+        <video class=" media-card media-video" width="300" height="300"  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4" alt="${item.title}" tabindex="1">
             <source  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>

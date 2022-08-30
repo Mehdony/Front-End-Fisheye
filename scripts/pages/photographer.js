@@ -20,11 +20,13 @@ fetch("../data/photographers.json").then((res) => {
     console.log("photographer");
     console.log(photographer);
 
+    const infoContainer = document.querySelector(".info-container");
     const userName = document.querySelector(".photograph-name");
     const location = document.querySelector(".photograph-location");
     const quote = document.querySelector(".photograph-quote");
     const pp = document.querySelector(".pp");
 
+    infoContainer.setAttribute("aria-label", `${photographer.name} - ${photographer.location}`);
     userName.innerText = photographer.name;
     location.innerText = `${photographer.city}, ${photographer.country}`;
     quote.innerText = photographer.tagline;
