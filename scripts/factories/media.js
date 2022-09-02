@@ -14,7 +14,7 @@ export default function factory(data) {
                       <img class="media-card media-image" src="../assets/medias/${this.id}/${this.image}" alt="${this.title}">
                       <div class='figcaption-container'>
                       <figcaption>${this.title} </figcaption>
-                      <p class='media-likes-count'>${this.likes} </p> 
+                      <h2 class='media-likes-count'>${this.likes} </h2> 
                       <img src='../assets/icons/heart.svg'  class='heart-icon' alt='heart'>
                       </div>
                   </figure>`;
@@ -38,7 +38,7 @@ export default function factory(data) {
                           </video>
                           <div class='figcaption-container'>
                           <figcaption>${this.title}</figcaption>
-                          <p class='media-likes-count'>${this.likes} </p>
+                          <h2 class='media-likes-count'>${this.likes} </h2>
                           <img src='../assets/icons/heart.svg'  class='heart-icon' alt='heart'>
                           </div>
                       </figure>`;

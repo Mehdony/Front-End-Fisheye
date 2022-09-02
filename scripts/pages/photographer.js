@@ -25,6 +25,7 @@ fetch("../data/photographers.json").then((res) => {
     const location = document.querySelector(".photograph-location");
     const quote = document.querySelector(".photograph-quote");
     const pp = document.querySelector(".pp");
+    pp.setAttribute("alt", photographer.name);
 
     infoContainer.setAttribute("aria-label", `${photographer.name} - ${photographer.location}`);
     userName.innerText = photographer.name;

@@ -27,23 +27,23 @@ const buildDom = (item) => {
   if (item.image) {
     // modèle de card image
     return `<figure>
-        <img class="media-card media-image" src="../assets/medias/${item.photographerId}/${item.image}" alt="${item.title}" tabindex="1">
+        <img class="media-card media-image" src="../assets/medias/${item.photographerId}/${item.image}" alt="${item.title}" tabindex="10">
         <div class='figcaption-container'>
         <figcaption>${item.title} </figcaption>
-        <p class='media-likes-count'>${item.likes} </p> 
+        <h2 class='media-likes-count'>${item.likes} </h2> 
         <img src='../assets/icons/heart.svg'  class='heart-icon' alt='heart'>
         </div>
     </figure>`;
   } else {
     // modèle de card vidéo
     return `<figure>
-        <video class=" media-card media-video" width="300" height="300"  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4" alt="${item.title}" tabindex="1">
+        <video class=" media-card media-video" width="300" height="300"  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4" alt="${item.title}" tabindex="10">
             <source  src="../assets/medias/${item.photographerId}/${item.video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class='figcaption-container'>
         <figcaption>${item.title}</figcaption>
-        <p class='media-likes-count'>${item.likes} </p>
+        <h2 class='media-likes-count'>${item.likes} </h2>
         <img src='../assets/icons/heart.svg'  class='heart-icon' alt='heart'>
         </div>
     </figure>`;

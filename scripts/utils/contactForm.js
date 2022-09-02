@@ -22,6 +22,15 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+const closeIconContact = document.querySelector(".icon-close")
+closeIconContact.addEventListener("keydown", (e) => {
+  if(e.key === "Escape") { 
+    console.log("hello")
+    return closeModal() 
+  }
+console.log("marche pas");
+})
+
 const contactForm = document.querySelector(".contact_form");
 
 contactForm.addEventListener("submit", (e) => {
