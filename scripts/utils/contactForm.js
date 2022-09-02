@@ -1,3 +1,4 @@
+// Affichage de la modal avec le style
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
@@ -16,23 +17,23 @@ function displayModal() {
   contactNameContainer.innerHTML = "Contactez-moi" +  "</br>" + name
 
 }
-
+// fonction qui permet de fermer la modal
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 }
 
-const closeIconContact = document.querySelector(".icon-close")
-closeIconContact.addEventListener("keydown", (e) => {
-  if(e.key === "Escape") { 
-    console.log("hello")
-    return closeModal() 
-  }
-console.log("marche pas");
+
+// ferme la modal lorsqu'on presse la touche escape
+document.addEventListener("keydown", (e) => {
+if(e.key === "Escape") {
+  closeModal()
+}
 })
 
 const contactForm = document.querySelector(".contact_form");
 
+// On submit: Envoi du formulaire 
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const prenom = document.getElementById("prenom").value;
