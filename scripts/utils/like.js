@@ -18,6 +18,7 @@ export function like() {
             console.log(totalLikes)
             // si le coeur n'a pas été cliqué 
             if(!clicked){
+                likeButton.style.filter = "saturate(200%)"
                 // on incrémente le contenu de l'élément (nombre de likes) de 1 
                 nombreDeLikes.innerHTML = parseInt(nombreDeLikes.innerHTML) + 1
                 totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1
@@ -25,6 +26,7 @@ export function like() {
                 clicked = true
                 // si le coeur a été cliqué 
             } else {
+                likeButton.style.filter = "saturate(100%)"
                 // on décrémente le contenu de l'élément (nombre de likes) de 1 
                 nombreDeLikes.innerHTML = parseInt(nombreDeLikes.innerHTML) - 1
                 totalLikes.innerHTML = parseInt(totalLikes.innerHTML) -1

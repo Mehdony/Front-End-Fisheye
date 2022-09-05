@@ -89,7 +89,6 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    /* padding: 20px; */
 }
 
 form label {
@@ -154,7 +153,6 @@ figcaption, .figcaption-container{
     color: #901C1C;
     font-weight: 500;
     font-size: 24px;
-    /* align-content: center; */
     align-items: center;
     justify-content: space-between;
     height: 45px;
