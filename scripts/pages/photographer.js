@@ -57,7 +57,10 @@ fetch("../data/photographers.json").then((res) => {
       let price = document.querySelector(".info-price-number");
       likes.innerHTML = totalLikes;
       price.innerHTML = dailyPrice;
+      
     }
+
+    
 
     async function init() {
       initSort(medias, "popularity");

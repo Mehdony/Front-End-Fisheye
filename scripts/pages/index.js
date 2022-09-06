@@ -20,9 +20,18 @@
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
+            // get article from photographerModel
+           
+            userCardDOM.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    window.location.href = `photographer.html?id=${photographer.id}`;
+                }
+            })
         });
     
     };
+
+    
 
     async function init() {
         // Récupère les datas des photographes
@@ -31,4 +40,6 @@
     };
     
     init();
+
+  
     

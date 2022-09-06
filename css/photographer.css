@@ -130,6 +130,8 @@ figure img, figure video {
 figure{
     margin: 0;
 }
+
+
 .medias_section{
     display: flex; 
     flex-direction: row; 

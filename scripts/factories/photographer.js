@@ -7,7 +7,8 @@ export function photographerFactory(data) {
   function getUserCardDOM() {
     const article = document.createElement("article");
         article.setAttribute("tabindex", 1);
-        article.setAttribute("data-id", id);    
+        article.setAttribute("data-id", id);   
+        article.classList.add("photographer_card"); 
     const img = document.createElement("img");
     img.setAttribute("src", picture);
     img.setAttribute("alt", `portrait de ${name}`);
@@ -32,18 +33,16 @@ export function photographerFactory(data) {
       `location.href='photographer.html?id=${id}'`
     );
     
-    article.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        location.href = `photographer.html?id=${id}`;
-      }
-
-    });
     article.appendChild(img);
     article.appendChild(h2);
     article.appendChild(location);
     article.appendChild(description);
     article.appendChild(textPrice);
+
     return article;
   }
+
+
+
   return { name, picture, id, getUserCardDOM };
 }
