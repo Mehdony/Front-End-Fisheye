@@ -109,6 +109,12 @@ form input:not(#message)  {
     height: 68px;
     border: none;
     border-radius: 5px;
+
+}
+
+form input{
+    padding-left: 10px;
+    font-size: 24px;
 }
 
 #message {
