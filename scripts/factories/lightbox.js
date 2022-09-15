@@ -1,20 +1,24 @@
 class Lightbox {
+
+  // gerer le chargement de la lightbox
   static init() {
+    // récupérer les images
     const links = Array.from(
       document.querySelectorAll(
         "img:not(.logo):not(.heading-image):not(.close):not(.pp):not(#close):not(.heart-icon):not(.heart-icon-bottom), video"
       )
     );
 
-
+    // récupérer les attributs src et alt des images et vidéos et les stocker dans des tableaux
     const gallery = links.map((link) => link.getAttribute("src"));
     const alts = links.map((link) => link.getAttribute("alt"));
 
 
+    // ajouter un écouteur d'événement sur chaque image et vidéo
     links.forEach((link) =>
       link.addEventListener("click", (e) => {
         e.preventDefault();
-   
+        // créer une nouvelle instance de Lightbox en lui passant l'url de l'image et le tableau des images
         new Lightbox(
           e.currentTarget.getAttribute("src"),
           gallery,
@@ -24,7 +28,7 @@ class Lightbox {
       })
     );
 
-
+    // Idem qu'au dessus mais pour l'accessibilité au clavier
     links.forEach((link) =>
       link.addEventListener("keydown", (e) => {
        if(e.key === "Enter") {
@@ -41,6 +45,7 @@ class Lightbox {
     );
   }
 
+  
   constructor(url, gallery, alts, alt) {
     this.element = this.buildDOM(url);
     this.gallery = gallery;
@@ -57,6 +62,8 @@ class Lightbox {
     document.addEventListener("keyup", this.onKeyUp);
   }
 
+
+  // construire le DOM de la lightbox pour une image 
   loadImage(url, alt) {
     this.alt = alt;
     this.url = null;
@@ -80,6 +87,7 @@ class Lightbox {
     image.src = url;
   }
 
+  // construire le DOM de la lightbox pour une vidéo
   loadVideo(url, alt) {
     this.alt = alt;
     this.url = null;
@@ -111,6 +119,8 @@ class Lightbox {
     video.innerHTML = `<source src="${url}" type="video/mp4">`;
   }
 
+
+  // gestion de la navigation entre les images (suivant)
   next(e) {
     e.preventDefault();
     let i = this.gallery.findIndex((image) => image === this.url);
@@ -127,6 +137,7 @@ class Lightbox {
     
   }
 
+  // gestion de la navigation entre les images (précédent)
   prev(e) {
     e.preventDefault();
     let i = this.gallery.findIndex((image) => image === this.url);
@@ -140,6 +151,8 @@ class Lightbox {
     }
   }
 
+
+// gestion des touches du clavier pour l'accèsibilité
   onKeyUp(e) {
     switch (e.key) {
       case 'Escape' : 
@@ -154,6 +167,7 @@ class Lightbox {
     }
   }
 
+  // fermer la lightbox
   close(e) {
     e.preventDefault();
     this.element.classList.add("fadeOut");
@@ -163,6 +177,7 @@ class Lightbox {
     document.removeEventListener("keyup", this.onKeyUp);
   }
 
+  // construire le DOM de la lightbox
   buildDOM() {
     const dom = document.createElement("div");
     dom.classList.add("lightbox");

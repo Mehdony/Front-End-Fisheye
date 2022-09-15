@@ -1,4 +1,5 @@
 // Model
+// permet de créer un model que l'on pourra utiliser pour chaque photographe
 export function photographerFactory(data) {
   const { name, portrait, id, city, country, tagline, price } = data;
 

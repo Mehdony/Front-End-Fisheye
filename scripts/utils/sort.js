@@ -57,6 +57,7 @@ const buildImage = (id, item) => {
   </div>
 </figure>`;
 }
+
 // controlleur ( traitement des données  , appeler la fonction sortBy pour obtenir les medias  et envoyer les médias à la fonction display qui va afficher les datas )
 export const initSort = (items, option) => {
   const mediasContainer = document.querySelector(".medias_section");
