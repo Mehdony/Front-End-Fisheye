@@ -16,7 +16,7 @@ export function like() {
       const nombreDeLikes = parent.querySelector(".media-likes-count");
 
       const totalLikes = document.querySelector(".info-like-number");
-      console.log(totalLikes);
+    
       // si le coeur n'a pas été cliqué
       if (!clicked) {
         likeButton.style.filter = "saturate(200%)";
@@ -45,7 +45,7 @@ export function like() {
         const nombreDeLikes = parent.querySelector(".media-likes-count");
 
         const totalLikes = document.querySelector(".info-like-number");
-        console.log(totalLikes);
+    
         // si le coeur n'a pas été cliqué
         if (!clicked) {
           likeButton.style.filter = "saturate(200%)";

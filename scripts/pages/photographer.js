@@ -14,9 +14,7 @@ fetch("../data/photographers.json").then((res) => {
     const photographer = photographersList.photographers.find(
       (photographer) => photographer.id == userId
     );
-    console.log("photographer");
-    console.log(photographer);
-
+  
     const infoContainer = document.querySelector(".info-container");
     const userName = document.querySelector(".photograph-name");
     const location = document.querySelector(".photograph-location");
@@ -42,15 +40,13 @@ fetch("../data/photographers.json").then((res) => {
     const dailyPrice = photographer.price;
     displayLikes(totalLikes, dailyPrice);
 
-    // ***********
+
     const select = document.querySelector("select");
     select.addEventListener("change", function (e) {
-      console.log(e.currentTarget.value);
       initSort(medias, e.currentTarget.value);
       like();
       Lightbox.init();
     });
-    // ***********
 
     function displayLikes(totalLikes, dailyPrice) {
       let likes = document.querySelector(".info-like-number");
